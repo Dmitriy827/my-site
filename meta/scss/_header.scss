@@ -1,0 +1,145 @@
+.header {
+	// background-color: #010208;
+	padding-top: toRem(30);
+	padding-bottom: toRem(30);
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	transition: background-color 0.3s ease;
+	// .header__container
+
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: toRem(10);
+		justify-content: space-between;
+	}
+
+	// .header__logo
+
+	&__logo {
+		flex: 0 1 toRem(84);
+	}
+}
+.logo {
+	z-index: 50;
+	width: 100%;
+	// height: 100%;
+}
+.menu {
+	font-weight: 400;
+	// .menu__body
+
+	&__body {
+		@media (max-width: toEm(764)) {
+			position: fixed;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background-color: #010208;
+			overflow: auto;
+			padding: 80px 15px 15px 15px;
+			transition: all 0.5s;
+		}
+	}
+
+	// .menu__list
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		color: rgb(250, 244, 234);
+		display: flex;
+		justify-content: center;
+		column-gap: toRem(50);
+		flex-wrap: wrap;
+		@media (max-width: toEm(764)) {
+			flex-direction: column;
+			gap: toRem(25);
+			color: #fff;
+		}
+	}
+
+	// .menu__item
+
+	&__item {
+	}
+
+	// .menu__link
+
+	&__link {
+	}
+}
+.icon-menu {
+	display: none;
+	@media (max-width: toEm(764)) {
+		display: block;
+		flex: 0 0 33px;
+		height: 26px;
+		position: relative;
+		&:before {
+			content: "";
+			height: 3.7px;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: toRem(40);
+			background-color: #fff;
+			transition: all 0.3s;
+		}
+
+		&:after {
+			content: "";
+			height: 3.7px;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			border-radius: toRem(40);
+			background-color: #fff;
+			transition: all 0.3s;
+		}
+	}
+
+	span {
+		content: "";
+		height: 3.7px;
+		width: 100%;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		margin-top: -2px;
+		border-radius: toRem(40);
+		background-color: #fff;
+		transition: all 0.3s;
+	}
+}
+
+.menu-open {
+	@media (max-width: toEm(764)) {
+		.menu__body {
+			left: 0;
+			&::before {
+				left: 0;
+			}
+		}
+
+		.icon-menu {
+			span {
+				transform: scale(0);
+			}
+			&::after {
+				transform: rotate(45deg);
+				bottom: 50%;
+			}
+			&::before {
+				transform: translate(0, -100%) rotate(-45deg);
+				top: 50%;
+			}
+		}
+	}
+}

@@ -1,0 +1,135 @@
+.work {
+	&--margin {
+		@include adaptive-margin-side(margin-bottom, 150, 50);
+	}
+	// .work__container
+
+	&__container {
+	}
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(16);
+		align-items: center;
+		text-align: center;
+		@include adaptive-margin-side(margin-bottom, 90, 30);
+		.title {
+			&__name {
+				@include adaptiv-font(35, 29);
+			}
+			&__text {
+				max-width: toRem(600);
+				line-height: 1.5;
+				@include adaptiv-font(18, 16);
+			}
+		}
+	}
+	// .work__content
+
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		grid-column-gap: toRem(20);
+		grid-row-gap: toRem(20);
+		@media (max-width: toEm(940)) {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
+		@media (max-width: toEm(650)) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(6, 1fr);
+		}
+	}
+
+	// .work__wrap
+
+	&__wrap {
+		opacity: 0;
+		transform: translateY(40px);
+		transition:
+			opacity 1s ease,
+			transform 1s ease;
+		background-color: rgba(9, 8, 35, 1);
+		padding: toRem(18) toRem(18) toRem(35) toRem(18);
+		display: flex;
+		flex-direction: column;
+		gap: toRem(23);
+		&.show {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	// .work__image
+
+	&__image {
+		// margin-bottom: toRem(22);
+		img {
+			border-radius: 0px 15px 0px 0px;
+			width: 100%;
+			aspect-ratio: 335 / 217;
+			object-fit: cover;
+		}
+	}
+
+	// .work__title
+
+	&__sub-title {
+		// margin-bottom: toRem(22);
+		.title {
+			&__name {
+				@include adaptiv-font(20, 18);
+				font-weight: 600;
+				margin-bottom: toRem(8);
+			}
+			&__text {
+				font-size: toRem(14);
+				line-height: 1.3;
+			}
+		}
+	}
+
+	// .work__btn
+
+	&__btn {
+		.btn {
+			font-size: toRem(16);
+			@media (max-width: toEm(768)) {
+				font-size: toRem(14);
+			}
+			&--color {
+				font-weight: 500;
+				padding: toRem(6) toRem(20);
+				margin-right: toRem(13);
+			}
+
+			&--transparent {
+				padding: toRem(6) toRem(12);
+			}
+		}
+	}
+}
+.title {
+	// .title__name
+
+	&__name {
+	}
+
+	// .title__text
+
+	&__text {
+	}
+}
+.btn {
+	// .btn--color
+
+	&--color {
+	}
+
+	// .btn--transparent
+
+	&--transparent {
+	}
+}

@@ -1,0 +1,111 @@
+.footer {
+	background-color: rgba(9, 8, 35, 1);
+	@include adaptive-padding-side(padding-top, 100, 30);
+	@include adaptive-padding-side(padding-bottom, 100, 30);
+	line-height: 1.6;
+	@include adaptiv-font(16, 12);
+
+	// .footer__container
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		@media (max-width: toEm(1090)) {
+			flex-direction: column;
+		}
+	}
+
+	// .footer__left
+
+	&__left {
+		max-width: toRem(470);
+	}
+
+	// .footer__logo
+
+	&__logo {
+		margin-bottom: toRem(20);
+		width: toRem(150);
+		img {
+			width: 100%;
+		}
+	}
+
+	// .footer__text
+
+	&__text {
+	}
+
+	// .footer__right
+
+	&__right {
+		display: flex;
+		gap: toRem(50);
+		@media (max-width: toEm(1090)) {
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+	}
+
+	// .footer__inner
+
+	&__inner {
+	}
+
+	// .footer__title
+
+	&__title {
+		font-family: "Orbitron";
+		margin-bottom: toRem(20);
+		@include adaptiv-font(20, 18);
+		font-weight: 700;
+	}
+
+	// .footer__list
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(8);
+	}
+
+	// .footer__item
+
+	&__item {
+	}
+
+	// .footer__link
+
+	&__link {
+		max-width: toRem(220);
+	}
+
+	// .footer__social
+
+	&__social {
+	}
+}
+.logo {
+}
+.social {
+	display: flex;
+	gap: toRem(20);
+	// .social__item
+
+	&__item {
+	}
+
+	// .social__link
+
+	&__link {
+	}
+
+	// .social__img
+
+	&__img {
+		width: toRem(35);
+		height: toRem(35);
+		fill: #fff;
+	}
+}

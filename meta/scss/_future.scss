@@ -1,0 +1,231 @@
+.future {
+	position: relative;
+	&::before {
+		position: absolute;
+		content: "";
+		background-image: url("/img/decore.png");
+		background-size: cover;
+		width: 1032px;
+		height: 1046px;
+		left: 5%;
+		top: -80%;
+		z-index: -2;
+	}
+	&::after {
+		position: absolute;
+		content: "";
+		background-image: url("/img/decore.png");
+		background-size: cover;
+		width: 1032px;
+		height: 1046px;
+		right: -400px;
+		top: -200px;
+		z-index: -2;
+	}
+	// .future--margin
+
+	&--margin {
+		padding-top: toRem(130);
+		@include adaptive-margin-side(margin-bottom, 150, 50);
+	}
+
+	// .future__container
+
+	&__container {
+	}
+
+	// .future__content
+
+	&__content {
+		display: flex;
+		gap: toRem(20);
+		@media (max-width: toEm(768)) {
+			flex-direction: column;
+		}
+	}
+
+	// .future__left
+
+	&__left {
+		flex: 1;
+		padding-top: toRem(65);
+		.stats {
+			@media (max-width: toEm(768)) {
+				display: none;
+			}
+		}
+	}
+
+	// .future__title
+
+	&__title {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(10);
+		margin-bottom: toRem(48);
+		@media (max-width: toEm(768)) {
+			align-items: center;
+			text-align: center;
+		}
+
+		.title__name {
+			@include adaptiv-font(45, 29);
+			line-height: 1.3;
+
+			a {
+				@include adaptiv-font(55, 29);
+				font-weight: 700;
+			}
+		}
+		.title__text {
+			line-height: 1.6;
+			@include adaptiv-font(20, 16);
+			max-width: toRem(520);
+		}
+	}
+
+	// .future__btn
+
+	&__btn {
+		@include adaptiv-font(20, 16);
+		font-weight: 500;
+		margin-bottom: toRem(40);
+		display: flex;
+		gap: toRem(16);
+		@media (max-width: toEm(768)) {
+			justify-content: center;
+		}
+		.btn {
+			padding: toRem(12) toRem(26) toRem(12) toRem(26);
+			@media (max-width: toEm(390)) {
+				padding: toRem(8) toRem(12) toRem(8) toRem(12);
+			}
+			&--color {
+			}
+			&--transparent {
+			}
+		}
+	}
+
+	// .future__right
+
+	&__right {
+		flex: 1;
+		@media (max-width: toEm(768)) {
+			order: -1;
+		}
+	}
+
+	// .future__img
+
+	&__img {
+		position: relative;
+		&::before {
+			position: absolute;
+			content: "";
+			width: toRem(64);
+			height: toRem(73);
+			left: -10px;
+			top: 20%;
+			background-image: url("/img/stars.png");
+			@media (max-width: toEm(768)) {
+				display: none;
+			}
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -18%;
+			left: 0;
+			width: 100%;
+			height: 40%; // регулируешь, насколько высоко идёт эффект
+			background-color: #010208;
+			filter: blur(50px);
+			pointer-events: none; // чтобы не мешал кликам
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			aspect-ratio: 566 / 566;
+			object-fit: contain;
+		}
+
+		.stats {
+			display: none;
+			@media (max-width: toEm(768)) {
+				display: block;
+			}
+			.stats-item {
+				&--artwoks {
+					position: absolute;
+					content: "";
+					left: 0;
+					top: 15%;
+				}
+
+				&--artists {
+					position: absolute;
+					content: "";
+					left: 30%;
+					top: -35px;
+				}
+				&--auction {
+					position: absolute;
+					content: "";
+					right: 0;
+					top: 15%;
+				}
+			}
+		}
+	}
+}
+
+.btn {
+	border-radius: toRem(5);
+	// .btn--color
+
+	&--color {
+		background: linear-gradient(158.4deg, rgba(209, 14, 209, 1), rgba(16, 163, 218, 1) 100%);
+		color: #fff;
+
+		&:hover {
+			// Анимация градиента при наведении
+			background: linear-gradient(270deg, rgba(209, 14, 209, 1), rgba(16, 163, 218, 1), rgba(209, 14, 209, 1));
+			background-size: 600% 600%;
+			animation: gradient-slide 3s linear infinite;
+		}
+	}
+
+	// .btn--transparent
+
+	&--transparent {
+		position: relative;
+		display: inline-block;
+		background: transparent;
+		transition: box-shadow 0.3s ease;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			padding: 1px; // толщина бордера
+			border-radius: 5px;
+			background: linear-gradient(270deg, rgba(16, 163, 218, 1), rgba(209, 14, 209, 1));
+			-webkit-mask:
+				linear-gradient(#fff 0 0) content-box,
+				linear-gradient(#fff 0 0);
+			-webkit-mask-composite: xor;
+			mask-composite: exclude;
+			pointer-events: none;
+		}
+
+		&:hover {
+			// неоновый glow вокруг бордера
+			box-shadow:
+				0 0 10px rgba(209, 14, 209, 0.7),
+				0 0 20px rgba(16, 163, 218, 0.5);
+		}
+	}
+}
